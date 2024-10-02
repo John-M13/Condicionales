@@ -7,10 +7,17 @@ let colorCirculo; // Variable para el color del círculo
 function setup() {
   createCanvas(windowWidth, windowHeight);
   colorCirculo = color(84, 195, 146); // Color inicial
+  textAlign(CENTER); // Alinear el texto al centro
+  textSize(40); // Tamaño del texto
 }
 
 function draw() {
-  background(210, 255, 114);
+  background(0);
+
+  // Mostrar el texto en la parte superior
+  fill(random(255)); // Color del texto
+  text("PRESS THE MOUSE", width / 2, 40); // texto centrado
+
   fill(colorCirculo);
   noStroke();
   ellipse(x, y, 100, 100);
@@ -31,4 +38,7 @@ function draw() {
 // Cambia el color del círculo al presionar el mouse
 function mousePressed() {
   colorCirculo = color(random(255), random(255), random(255)); // Cambiar a un color aleatorio
+  // Invertir la dirección de la pelota
+  xspeed *= -1;
+  yspeed *= -1;
 }
